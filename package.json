@@ -1,0 +1,23 @@
+{
+  "name": "nightmare-handler",
+  "version": "0.1.0",
+  "description": "nightmare handler for extending and so on",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/helinjiang/nightmare-handler.git"
+  },
+  "keywords": [
+    "nightmare",
+    "extending"
+  ],
+  "author": "helinjiang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/helinjiang/nightmare-handler/issues"
+  },
+  "homepage": "https://github.com/helinjiang/nightmare-handler#readme"
+}
