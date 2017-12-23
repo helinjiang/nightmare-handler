@@ -2,9 +2,10 @@
   "name": "nightmare-handler",
   "version": "0.1.0",
   "description": "nightmare handler for extending and so on",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "babel src -d lib -w",
+    "prepublish": "babel  src -d lib"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,10 @@
   "homepage": "https://github.com/helinjiang/nightmare-handler#readme",
   "dependencies": {
     "nightmare": "^2.10.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015-loose": "^8.0.0",
+    "babel-preset-stage-0": "^6.24.1"
   }
 }
