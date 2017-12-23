@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/helinjiang/nightmare-handler/issues"
   },
-  "homepage": "https://github.com/helinjiang/nightmare-handler#readme"
+  "homepage": "https://github.com/helinjiang/nightmare-handler#readme",
+  "dependencies": {
+    "nightmare": "^2.10.0"
+  }
 }
