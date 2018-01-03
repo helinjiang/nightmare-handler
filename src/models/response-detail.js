@@ -25,11 +25,14 @@ export default class ResponseDetail {
         this.headers = headers;
         this.resourceType = resourceType;
 
+        this.eventName = 'event-did-get-response-details';
+        this.t = Date.now();
+
         this.init();
     }
 
     init() {
-        this.t = Date.now();
+
         this.contentType = this.headers['content-type'] && this.headers['content-type'][0] || '';
         this.contentLength = parseInt(this.headers['content-length'] || 0);
     }
