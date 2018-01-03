@@ -8,7 +8,7 @@ export default class ResponseDetail {
      * @param {Boolean} status
      * @param {String} newURL
      * @param {String} originalURL
-     * @param {Integer} httpResponseCode
+     * @param {Number} httpResponseCode
      * @param {String} requestMethod
      * @param {String} referrer
      * @param {Object} headers
