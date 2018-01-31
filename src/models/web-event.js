@@ -1,5 +1,5 @@
 /**
- * https://electronjs.org/docs/api/web-contents#%E4%BA%8B%E4%BB%B6
+ * https://electronjs.org/docs/api/web-contents#class-webcontents
  */
 export default class WebEvent {
     /**
