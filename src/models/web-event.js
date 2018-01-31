@@ -1,3 +1,8 @@
+export const EVENT_NAME = {
+    CONSOLE: 'console',
+    PAGE: 'page',
+};
+
 /**
  * https://electronjs.org/docs/api/web-contents#class-webcontents
  */
