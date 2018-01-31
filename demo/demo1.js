@@ -1,10 +1,10 @@
 var Nightmare = require('nightmare');
-var getAllWebEvents = require('../lib/tools/get-all-web-events').default;
+var WebEventRecorder = require('../lib/tools/web-event-recorder').default;
 
 // 更多选项可参考 https://github.com/segmentio/nightmare#nightmareoptions
 var nightmare = Nightmare({ show: true });
 
-getAllWebEvents(nightmare)
+var recorder = new WebEventRecorder(nightmare);
 
 // 执行
 nightmare.goto('https://www.baidu.com')
@@ -20,6 +20,7 @@ nightmare.goto('https://www.baidu.com')
     .end()
     .then(function (result) {
         console.log(result);
+        console.log(recorder.toString());
     })
     .catch(function (error) {
         console.error('Search failed:', error);
