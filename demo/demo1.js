@@ -7,7 +7,7 @@ var nightmare = Nightmare({ show: true });
 var recorder = new WebEventRecorder(nightmare);
 
 // 执行
-nightmare.goto('https://www.baidu.com')
+nightmare.goto('http://www.baidu.com')
     .type('form[action*="/s"] [name=f]', 'nightmare')
     .click('form[action*="/s"] [type=submit]')
     .wait('#content_left')

@@ -47,7 +47,8 @@ export const EVENT_NAME = {
     // 当框架完成导航（navigation）时触发
     DID_FRAME_FINISH_LOAD: 'did-frame-finish-load',
 
-    // 页面加载完成时触发，相当于 onload，只触发一次
+    // 页面加载完成时触发，在 window.onload 之后，只触发一次。
+    // 实际中发现 did-finish-load 与 did-frame-finish-load 时间戳是相同的，意味着几乎同时触发
     // https://electronjs.org/docs/api/web-contents#event-did-finish-load
     // 导航完成时触发，即选项卡的旋转器将停止旋转，并指派onload事件后。
     DID_FINISH_LOAD: 'did-finish-load',
