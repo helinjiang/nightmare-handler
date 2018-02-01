@@ -9,8 +9,8 @@ export default class WebEventRecorder {
         this._init();
     }
 
-    add(item) {
-        this.queue.push(item);
+    add(eventName, args) {
+        this.queue.push(new WebEvent(eventName, args));
     }
 
     _init() {
@@ -19,7 +19,7 @@ export default class WebEventRecorder {
         // 注册事件
         Object.keys(EVENT_NAME).forEach((name) => {
             this.nightmare.on(EVENT_NAME[name], function (...args) {
-                self.add(new WebEvent(EVENT_NAME[name], args));
+                self.add(EVENT_NAME[name], args);
             });
         });
 
