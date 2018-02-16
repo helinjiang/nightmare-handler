@@ -11,11 +11,24 @@
 - `name`：名字，默认提供了两个场景： `pc` 和 `mobile`（默认值）
 - `opts`：额外的一些参数，支持 `width` 和 `height`
 
-## web-events 的顺序
+## 关于页面的事件
 
-比较有价值的页面事件已经在 `./src/models/web-event.js` 中定义了 `EVENT_NAME`。这些事件的触发有一定的顺序。
+nightmare 加载页面时，会产生一系列事件，通过这些事件，我们能够知道页面和资源加载的情况。我们选择一些事件定义在了 `/models/web-event.js` 中的 `EVENT_NAME` 中，更多的内容可以阅读以下文档：
 
-一个相对正常的顺序为：
+- https://github.com/segmentio/nightmare#extract-from-the-page
+- https://electronjs.org/docs/api/web-contents#class-webcontents
+
+### WebEvents 类和 WebEventRecorder 类
+
+为了更好的处理，在 `/models/web-event.js` 中定义了 WebEvents 类，封装事件；而为了记录这些事件，我们在 `/tools/web-event-recorder.js` 中定义了 WebEventRecorder 类，使用方法如下，即可记录所有的页面加载的事件。
+
+```
+var recorder = new WebEventRecorder(nightmare);
+```
+
+### web-events 的顺序
+
+这些事件的触发有一定的顺序。一个正常的顺序为：
 
 - `did-start-loading` （最先开始触发）
 - `did-get-redirect-request`（301等重定向才会有）
