@@ -866,4 +866,15 @@ queue.forEach((item) => {
     recorder.add(item.eventName, item.args);
 });
 
-console.log(recorder.queue.length)
+console.log(recorder.queue.length);
+// console.log(recorder.toString());
+
+// recorder.queue.forEach((item) => {
+//     console.log(JSON.stringify(item));
+// });
+
+// console.log(recorder.getAllResponseDetail());
+
+recorder.getAllResponseDetail().forEach((item) => {
+    console.log(item.contentType + ' : ' + item.resourceType);
+});
