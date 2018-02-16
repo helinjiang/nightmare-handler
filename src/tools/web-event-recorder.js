@@ -2,8 +2,16 @@ import WebEvent, { EVENT_NAME } from '../models/web-event';
 import ResponseDetail from '../models/response-detail';
 
 export default class WebEventRecorder {
-    constructor(nightmare) {
+    /**
+     * WebEventRecorder
+     *
+     * @param {Object} [nightmare] Nightmare 的对象
+     * @param {Object} [eventMap] 要监听的事件地点，形如 { CONSOLE: 'console'}，可参考 models/web-event 中的 EVENT_NAME
+     */
+    constructor(nightmare, eventMap = EVENT_NAME) {
         this.nightmare = nightmare;
+        this.eventMap = eventMap;
+
         this.queue = [];
 
         // 初始化
@@ -27,7 +35,7 @@ export default class WebEventRecorder {
         let result = [];
 
         this.queue.forEach((item) => {
-            if (item.eventName !== EVENT_NAME.DID_GET_RESPONSE_DETAILS) {
+            if (item.eventName !== this.eventMap.DID_GET_RESPONSE_DETAILS) {
                 return;
             }
 
@@ -41,10 +49,10 @@ export default class WebEventRecorder {
         let self = this;
 
         // 注册事件
-        if (this.nightmare) {
-            Object.keys(EVENT_NAME).forEach((name) => {
-                this.nightmare.on(EVENT_NAME[name], function (...args) {
-                    self.add(EVENT_NAME[name], args);
+        if (this.nightmare && this.eventMap) {
+            Object.keys(this.eventMap).forEach((name) => {
+                this.nightmare.on(this.eventMap[name], function (...args) {
+                    self.add(this.eventMap[name], args);
                 });
             });
         }
