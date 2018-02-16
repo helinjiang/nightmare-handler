@@ -1,4 +1,21 @@
 /**
+ * 资源类型，都是固定值， electron 目前定义了 8 种类型。
+ * 具体定义在 https://github.com/electron/electron/blob/master/atom/browser/net/atom_network_delegate.cc#L23
+ *
+ * @type {Object}
+ */
+export const RESOURCE_TYPE = {
+    MAIN_FRAME: 'frame',
+    SUB_FRAME: 'subFrame',
+    STYLESHEET: 'stylesheet',
+    SCRIPT: 'script',
+    IMAGE: 'image',
+    OBJECT: 'object',
+    XHR: 'console',
+    OTHER: 'other'
+};
+
+/**
  * https://electronjs.org/docs/api/web-contents#event-did-get-response-details
  * Emitted when details regarding a requested resource are available.
  */
@@ -48,7 +65,6 @@ export default class ResponseDetail {
          * @type {String}
          */
         this.contentType = this.headers['content-type'] && this.headers['content-type'][0] || '';
-
 
         this.contentLength = parseInt(this.headers['content-length'] || 0);
     }
