@@ -46,7 +46,7 @@ var recorder = new WebEventRecorder(nightmare);
 
 ### contentType 与 resourceType 的关系
 
-`contentType` 是指 `headers` 中的 `Content-Type`，可以自定义值返回。而 `resourceType` 指的是资源的类型。
+`contentType` 是指 `headers` 中的 `Content-Type`，可以自定义值返回。而 `resourceType` 指的是资源的类型，都是固定值（可参考 `models/response-detail.js` 中的 `RESOURCE_TYPE`）， electron 目前定义了 8 种类型（ `https://github.com/electron/electron/blob/master/atom/browser/net/atom_network_delegate.cc#L23`）。
 
 以返回 `https://www.baidu.com` 为例，搜集了一些对应关系。
 
