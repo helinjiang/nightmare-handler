@@ -43,3 +43,23 @@ var recorder = new WebEventRecorder(nightmare);
 - `did-frame-finish-load`
 - `did-finish-load` （与 did-frame-finish-load 基本上是同一时间触发，window.onload 之后触发）
 - `did-stop-loading` （最后结束）
+
+### contentType 与 resourceType 的关系
+
+`contentType` 是指 `headers` 中的 `Content-Type`，可以自定义值返回。而 `resourceType` 指的是资源的类型。
+
+以返回 `https://www.baidu.com` 为例，搜集了一些对应关系。
+
+| contentType | resourceType | 备注 |
+| --- | --- | --- |
+| `text/html; charset=utf-8` | `mainFrame` | html页面 |
+| `text/css` | `stylesheet` | CSS外联样式表 |
+| `baiduApp/json; v6.27.2.14; charset=UTF-8` | `xhr` | 查询历史搜索记录 |
+| `text/html; charset=utf-8` | `xhr` | xhr请求 |
+| `text/html;charset=utf-8` | `xhr` | xhr请求 |
+| `text/javascript; charset=gbk` | `script` | jsonp等场景 |
+| `text/javascript; charset=utf-8` | `script` | jsonp等场景 |
+| `application/javascript` | `script` | js外联 |
+| `image/jpeg` | `image` | 图片 |
+| `image/gif` | `image` | 图片 |
+| `image/png` | `image` | 图片 |
