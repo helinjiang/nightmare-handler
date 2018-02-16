@@ -50,9 +50,9 @@ export default class WebEventRecorder {
 
         // 注册事件
         if (this.nightmare && this.eventMap) {
-            Object.keys(this.eventMap).forEach((name) => {
-                this.nightmare.on(this.eventMap[name], function (...args) {
-                    self.add(this.eventMap[name], args);
+            Object.keys(self.eventMap).forEach((name) => {
+                this.nightmare.on(self.eventMap[name], function (...args) {
+                    self.add(self.eventMap[name], args);
                 });
             });
         }
