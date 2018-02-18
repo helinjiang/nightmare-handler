@@ -1,5 +1,6 @@
 var Nightmare = require('nightmare');
-var WebEventRecorder = require('../lib/tools/web-event-recorder').default;
+// var WebEventRecorder = require('../lib/tools/web-event-recorder').default;
+var WebEventRecorder = require('../lib').WebEventRecorder;
 
 // 更多选项可参考 https://github.com/segmentio/nightmare#nightmareoptions
 var nightmare = Nightmare({ show: true });
