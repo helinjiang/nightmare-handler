@@ -1,6 +1,6 @@
 {
   "name": "nightmare-handler",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "nightmare handler for extending and so on",
   "main": "lib/index.js",
   "scripts": {
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/helinjiang/nightmare-handler#readme",
   "dependencies": {
-    "nightmare": "^2.10.0"
+    "nightmare": "^3.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
