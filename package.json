@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "dev": "babel src -d lib -w",
-    "prepublish": "babel src -d lib"
+    "prepublishOnly": "babel src -d lib"
   },
   "repository": {
     "type": "git",
