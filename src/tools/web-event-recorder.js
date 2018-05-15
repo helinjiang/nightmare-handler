@@ -9,13 +9,12 @@ export default class WebEventRecorder {
      * @param {Object} [eventMap] 要监听的事件地点，形如 { CONSOLE: 'console'}，可参考 models/web-event 中的 EVENT_NAME
      */
     constructor(nightmare, eventMap = EVENT_NAME) {
-        this.nightmare = nightmare;
         this.eventMap = eventMap;
 
         this.queue = [];
 
         // 初始化
-        this._init();
+        this._init(nightmare);
     }
 
     /**
@@ -45,13 +44,13 @@ export default class WebEventRecorder {
         return result;
     }
 
-    _init() {
+    _init(nightmare) {
         let self = this;
 
         // 注册事件
-        if (this.nightmare && this.eventMap) {
+        if (nightmare && this.eventMap) {
             Object.keys(self.eventMap).forEach((name) => {
-                this.nightmare.on(self.eventMap[name], function (...args) {
+                nightmare.on(self.eventMap[name], function (...args) {
                     self.add(self.eventMap[name], args);
                 });
             });
