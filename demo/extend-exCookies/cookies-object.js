@@ -1,25 +1,20 @@
-const nightmareHandler = require('../lib');
+const nightmareHandler = require('../../lib');
 
-let test1 = [{
-    name: 'myKey',
-    value: 'myValue'
-}, {
-    name: 'myKey3',
-    value: 'myValue3'
-}];
-
-let test2 = {
+// 需要设置的 cookie
+const cookies = {
     name: 'myKey',
     value: 'myValue'
 };
 
-let test3 = 'myKey=myValue; myKey3=myValue3';
+// 获得扩展之后的 Nightmare
+const NightmarePlus = nightmareHandler.getNightmarePlus();
 
-var nightmare = nightmareHandler.NightmarePlus({ show: true });
+// 初始化 nightmare 对象
+const nightmare = NightmarePlus({ show: true });
 
 nightmare
     .exDevice('mobile')
-    .exCookies(test3, 'https://www.navossoc.com')
+    .exCookies(cookies, 'https://www.navossoc.com')
     .goto('https://www.navossoc.com/tests/cookie.php')
     .evaluate(function () {
         return {
