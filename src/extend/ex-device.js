@@ -21,9 +21,10 @@ const DEVICE = {
  * @param extraDevice
  */
 export default function addExtend(Nightmare, extraDevice) {
+    // 合并传入的自定义设备
+    const deviceMap = _.merge({}, DEVICE, extraDevice);
+
     Nightmare.prototype.exDevice = function (name, opts = {}) {
-        // 合并传入的自定义设备
-        const deviceMap = _.merge({}, DEVICE, extraDevice);
         const that = this;
 
         this.queue(function (done) {

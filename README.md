@@ -13,7 +13,11 @@ $ npm install nightmare-handler
 ```
 const nightmareHandler = require('nightmare-handler');
 
-const nightmare = nightmareHandler.NightmarePlus({ show: true });
+// 获得扩展之后的 Nightmare
+const NightmarePlus = nightmareHandler.getNightmarePlus();
+
+// 初始化 nightmare 对象
+const nightmare = NightmarePlus({ show: true });
 
 // 执行
 nightmare
@@ -25,7 +29,8 @@ nightmare
             title: document.title,
             searchBtnTxt: document.querySelector('#index-bn').innerText,
             width: window.innerWidth,
-            height: window.innerHeight
+            height: window.innerHeight,
+            userAgent: navigator.userAgent
         };
     })
     .end()
@@ -39,13 +44,19 @@ nightmare
 
 ## 方法
 
-### Nightmare 和 NightmarePlus
+### Nightmare 和 getNightmarePlus(config)
 
 ```
-import { Nightmare, NightmarePlus } from 'nightmare-handler';
+import { Nightmare, getNightmarePlus } from 'nightmare-handler';
 ```
 
-`Nightmare` 就是 [nightmare](https://www.npmjs.com/package/nightmare) ，而 `NightmarePlus` 是对 `Nightmare` 进行了扩展（[Extending Nightmare](https://github.com/segmentio/nightmare#extending-nightmare) ）等处理。
+`Nightmare` 就是 [nightmare](https://www.npmjs.com/package/nightmare) ，而 `getNightmarePlus(config)` 方法返回的对象是对 `Nightmare` 进行了扩展（[Extending Nightmare](https://github.com/segmentio/nightmare#extending-nightmare) ）等处理。
+
+
+`getNightmarePlus(config)` 参数说明：
+
+- `deviceMap`，设备配置，格式为 { name : { UA, width, height } }
+
 
 已扩展的方法列表如下：
 
