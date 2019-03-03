@@ -12,7 +12,8 @@ nightmare
             title: document.title,
             searchBtnTxt: document.querySelector('#su').value,
             width: window.innerWidth,
-            height: window.innerHeight
+            height: window.innerHeight,
+            userAgent: navigator.userAgent
         };
     })
     .end()
