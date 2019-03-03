@@ -1,4 +1,4 @@
-# exDevice
+# exDevice(name, opts)
 
 指定 UA 和视窗大小，用于模拟设备和场景。
 
