@@ -1,6 +1,6 @@
 {
   "name": "nightmare-handler",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "nightmare handler for extending and so on",
   "main": "lib/index.js",
   "scripts": {
