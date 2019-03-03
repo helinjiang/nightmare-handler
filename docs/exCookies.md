@@ -1,6 +1,6 @@
 # exCookies(cookies, url)
 
-注入 cookie
+为指定的域名地址注入 cookie 。
 
 ## API 说明
 
