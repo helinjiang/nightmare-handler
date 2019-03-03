@@ -13,5 +13,14 @@ export default function extend(Nightmare, config = {}) {
 
     addExtendCookies(Nightmare);
 
+    // 提供自定义扩展的能力
+    Nightmare.extend = function (callExtend, opts) {
+        if (typeof callExtend !== 'function') {
+            throw new Error('Nightmare.extend first argument must be function!');
+        }
+
+        callExtend(Nightmare, opts);
+    };
+
     return Nightmare;
 }
