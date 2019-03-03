@@ -55,13 +55,15 @@ import { Nightmare, getNightmarePlus } from 'nightmare-handler';
 
 `getNightmarePlus(config)` 参数说明：
 
-- `deviceMap`，设备配置，格式为 { name : { UA, width, height } }
+- `config.deviceMap`，设备配置，格式为 { name : { UA, width, height } }
 
 
 已扩展的方法列表如下：
 
 - [exDevice(name, opts)](docs/exDevice.md)
 - [exCookies(cookies, url)](docs/exCookies.md)
+
+如果上述提供的扩展方法不满足您的诉求，可以选择 [自定义扩展 NightmarePlus.extend(callExtend, opts)](docs/extend.md) 。
 
 ### 事件相关
 
