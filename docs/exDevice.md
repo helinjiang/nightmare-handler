@@ -49,7 +49,11 @@
 ```
 const nightmareHandler = require('nightmare-handler');
 
-const nightmare = nightmareHandler.NightmarePlus({ show: true });
+// 获得扩展之后的 Nightmare
+const NightmarePlus = nightmareHandler.getNightmarePlus();
+
+// 初始化 nightmare 对象
+const nightmare = NightmarePlus({ show: true });
 
 // 执行
 nightmare
