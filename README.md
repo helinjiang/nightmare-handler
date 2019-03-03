@@ -61,6 +61,7 @@ import { Nightmare, getNightmarePlus } from 'nightmare-handler';
 已扩展的方法列表如下：
 
 - [exDevice(name, opts)](docs/exDevice.md)
+- [exCookies(cookies, url)](docs/exCookies.md)
 
 ### 事件相关
 
