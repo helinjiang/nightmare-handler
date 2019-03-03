@@ -49,7 +49,7 @@ import { Nightmare, NightmarePlus } from 'nightmare-handler';
 
 已扩展的方法列表如下：
 
-- [exDevice](docs/exDevice.md)
+- [exDevice(name, opts)](docs/exDevice.md)
 
 ### 事件相关
 
