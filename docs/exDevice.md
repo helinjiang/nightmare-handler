@@ -74,3 +74,8 @@ nightmare
 ```
 
 ### 指定场景及自定义宽高
+
+```
+nightmare
+    .exDevice('pc', { width: 600, height: 300 })
+```
