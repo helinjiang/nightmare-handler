@@ -1,4 +1,4 @@
-const nightmareHandler = require('../lib');
+const nightmareHandler = require('../../lib');
 
 const nightmare = nightmareHandler.NightmarePlus({ show: true });
 
@@ -10,7 +10,9 @@ nightmare
     .evaluate(function () {
         return {
             title: document.title,
-            searchBtnTxt: document.querySelector('#index-bn').innerText
+            searchBtnTxt: document.querySelector('#index-bn').innerText,
+            width: window.innerWidth,
+            height: window.innerHeight
         };
     })
     .end()

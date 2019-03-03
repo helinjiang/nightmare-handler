@@ -10,6 +10,9 @@
   - `opts.width`：视窗宽度，例如 `414`
   - `opts.height`：视窗高度，例如 `760`
 
+### demo
+
+查看 [demo](../demo/extend-exDevice)。
 
 ### 可选的模拟设备列表
 
