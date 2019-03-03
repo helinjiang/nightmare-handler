@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/helinjiang/nightmare-handler#readme",
   "dependencies": {
+    "lodash": "^4.17.11",
     "nightmare": "^3.0.1"
   },
   "devDependencies": {
