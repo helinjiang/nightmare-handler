@@ -1,7 +1,7 @@
 {
   "name": "nightmare-handler",
-  "version": "1.0.3",
-  "description": "nightmare handler for extending and so on",
+  "version": "1.0.4",
+  "description": "Extend nightmare for powerful usage",
   "main": "lib/index.js",
   "scripts": {
     "dev": "babel src -d lib -w",

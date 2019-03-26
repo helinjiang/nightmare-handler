@@ -62,6 +62,9 @@ import { Nightmare, getNightmarePlus } from 'nightmare-handler';
 
 - [exDevice(name, opts)](docs/exDevice.md)
 - [exCookies(cookies, url)](docs/exCookies.md)
+- [exScrollToTop()](docs/exScrollToTop.md)
+- [exScrollToBottom()](docs/exScrollToBottom.md)
+- [exScrollToSelector()](docs/exScrollToSelector.md)
 
 如果上述提供的扩展方法不满足您的诉求，可以选择 [自定义扩展 NightmarePlus.extend(callExtend, opts)](docs/extend.md) 。
 
