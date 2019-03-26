@@ -2,6 +2,7 @@ import addExtendDevice from './ex-device';
 import addExtendCookies from './ex-cookies';
 import exScrollToBottom from './ex-scroll-to-bottom';
 import exScrollToTop from './ex-scroll-to-top';
+import exScrollToSelector from './ex-scroll-to-selector';
 
 /**
  * 扩展
@@ -15,6 +16,7 @@ export default function extend(Nightmare, config = {}) {
     addExtendCookies(Nightmare);
     exScrollToBottom(Nightmare);
     exScrollToTop(Nightmare);
+    exScrollToSelector(Nightmare);
 
     // 提供自定义扩展的能力
     Nightmare.extend = function (callExtend, opts) {
