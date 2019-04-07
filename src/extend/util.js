@@ -6,6 +6,11 @@
 export function getCookieList(cookies) {
     let list = [];
 
+    // 非法的值
+    if (!cookies) {
+        return list;
+    }
+
     if (typeof cookies === 'string') {
         // 如果是字符串，例如name=value;name2=value2这种
         list = (function (cookiesStr) {

@@ -16,6 +16,7 @@ export default function addExtend(Nightmare) {
 
                     for (let i = 0; i < sessionCookies.length; i++) {
                         const details = Object.assign({ url: url }, sessionCookies[i]);
+                        // https://electronjs.org/docs/api/cookies
                         win.webContents.session.cookies.set(details, function (error) {
                             if (error) done(error);
                         });
@@ -26,6 +27,13 @@ export default function addExtend(Nightmare) {
             done();
             return this;
         },
+
+        /**
+         *
+         * @param cookies
+         * @param {String} url Retrieves cookies which are associated with url. Empty implies retrieving cookies of all urls.
+         * @param done
+         */
         function (cookies, url, done) {
             this.child.once('did-start-loading', done);
             this.child.emit('did-start-loading', getCookieList(cookies), url);
