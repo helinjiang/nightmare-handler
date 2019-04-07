@@ -18,22 +18,23 @@ nightmare = nightmare
 nightmare
     .evaluate(function () {
         return {
-            cookie: document.cookie
+            cookie: document.cookie,
+            pageUrl: location.href
         };
     })
-    // .end()
     .then(function (result) {
         // { cookie: 'myKey=myValue; myKey3=myValue3' }
         console.log('1', result);
 
         nightmare
-            .exMergeCookies(cookies2, 'https://www.navossoc.com')
+            .exMergeCookies(cookies2)
             .evaluate(function () {
                 return {
-                    cookie: document.cookie
+                    cookie: document.cookie,
+                    pageUrl: location.href
                 };
             })
-            // .end()
+            .end()
             .then(function (result) {
                 // { cookie: 'myKey3=myValue3; myKey=myValueNew; dummy=dummy_name; dummy2=dummy_name2' }
                 console.log('2', result);
