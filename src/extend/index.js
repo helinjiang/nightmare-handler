@@ -1,5 +1,6 @@
 import addExtendDevice from './ex-device';
 import addExtendCookies from './ex-cookies';
+import exMergeCookies from './ex-merge-cookies';
 import exScrollToBottom from './ex-scroll-to-bottom';
 import exScrollToTop from './ex-scroll-to-top';
 import exScrollToSelector from './ex-scroll-to-selector';
@@ -14,6 +15,7 @@ import exScrollToSelector from './ex-scroll-to-selector';
 export default function extend(Nightmare, config = {}) {
     addExtendDevice(Nightmare, config.deviceMap);
     addExtendCookies(Nightmare);
+    exMergeCookies(Nightmare);
     exScrollToBottom(Nightmare);
     exScrollToTop(Nightmare);
     exScrollToSelector(Nightmare);
