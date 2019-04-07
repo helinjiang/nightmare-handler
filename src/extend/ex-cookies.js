@@ -1,3 +1,5 @@
+import { getCookieList } from './util';
+
 /**
  * 扩展 nightmare 的方法
  *
@@ -8,7 +10,7 @@
 export default function addExtend(Nightmare) {
     Nightmare.action('exCookies',
         function (name, options, parent, win, renderer, done) {
-            parent.on('did-start-loading', function (url, sessionCookies) {
+            parent.on('did-start-loading', function (sessionCookies, url) {
                 if (sessionCookies) {
                     parent.emit('log', 'Preloading cookies');
 
@@ -26,29 +28,7 @@ export default function addExtend(Nightmare) {
         },
         function (cookies, url, done) {
             this.child.once('did-start-loading', done);
-
-            if (typeof cookies === 'string') {
-                cookies = (function (cookiesStr) {
-                    let arr = cookiesStr.split(';');
-                    let result = [];
-
-                    for (let i = 0; i < arr.length; i++) {
-                        let cur = arr[i].trim().split('=');
-
-                        result.push({
-                            name: cur[0],
-                            value: cur[1]
-                        });
-                    }
-
-                    return result;
-                })(cookies);
-            } else if (!Array.isArray(cookies)) {
-                // 如果 cookies 为对象，则尝试转为对象
-                cookies = [cookies];
-            }
-
-            this.child.emit('did-start-loading', url, cookies);
+            this.child.emit('did-start-loading', getCookieList(cookies), url);
         }
     );
 }
