@@ -1,11 +1,13 @@
 # exCookies(cookies, url)
 
-为指定的域名地址注入 cookie 。
+为指定的url地址注入 cookie 。
 
 ## API 说明
 
 - `cookies`：需要注入的 cookies，支持字符串（`myKey=myValue; myKey3=myValue3`）和对象数组（`[{ name: 'myKey', value: 'myValue' }, { name: 'myKey3',value: 'myValue3' }]`）两种格式
-- `url`：cookie 注入的域名路径地址，例如 'https://now.qq.com'
+- `url`：cookie 要绑定的地址，建议设置站点根地址，例如 'https://now.qq.com'
+
+> 注意，该方法需要在打开页面之前调用，例如 `goto` 之前调用。如果你需要在页面打开之后，更换 cookie，则请用 [exMergeCookies](./exMergeCookies.md)。
 
 ## Example
 

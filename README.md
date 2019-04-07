@@ -62,6 +62,7 @@ import { Nightmare, getNightmarePlus } from 'nightmare-handler';
 
 - [exDevice(name, opts)](docs/exDevice.md)
 - [exCookies(cookies, url)](docs/exCookies.md)
+- [exMergeCookies(cookies)](docs/exMergeCookies.md)
 - [exScrollToTop()](docs/exScrollToTop.md)
 - [exScrollToBottom()](docs/exScrollToBottom.md)
 - [exScrollToSelector(selector)](docs/exScrollToSelector.md)
