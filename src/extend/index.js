@@ -4,6 +4,7 @@ import exMergeCookies from './ex-merge-cookies';
 import exScrollToBottom from './ex-scroll-to-bottom';
 import exScrollToTop from './ex-scroll-to-top';
 import exScrollToSelector from './ex-scroll-to-selector';
+import exChangeMockStar from './ex-change-mockstar';
 
 /**
  * 扩展
@@ -19,6 +20,9 @@ export default function extend(Nightmare, config = {}) {
     exScrollToBottom(Nightmare);
     exScrollToTop(Nightmare);
     exScrollToSelector(Nightmare);
+
+    // TODO 该扩展应该使用插件的形式进行
+    exChangeMockStar(Nightmare, { key: '_ms_name' });
 
     // 提供自定义扩展的能力
     Nightmare.extend = function (callExtend, opts) {
