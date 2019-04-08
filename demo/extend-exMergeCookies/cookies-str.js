@@ -2,7 +2,7 @@ const nightmareHandler = require('../../lib');
 
 // 需要设置的 cookie
 const cookies1 = 'myKey=myValue; myKey3=myValue3';
-const cookies2 = 'myKey=myValueNew; dummy=dummy_name; dummy2=dummy_name2';
+const cookies2 = 'myKey=myValueNew; dummy=dummy_name; dummy2=[{"a":"a","b":0}]';
 
 // 获得扩展之后的 Nightmare
 const NightmarePlus = nightmareHandler.getNightmarePlus();
