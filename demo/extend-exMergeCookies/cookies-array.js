@@ -17,7 +17,7 @@ const cookies2 = [{
     value: 'dummy_name'
 }, {
     name: 'dummy2',
-    value: 'dummy_name2'
+    value: '[{"a":"a","b":0}]'
 }];
 
 // 获得扩展之后的 Nightmare
