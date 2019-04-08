@@ -1,8 +1,9 @@
+const mockstar = require('mockstar');
+
 const nightmareHandler = require('../../lib');
 
 // 需要设置的 cookie
-const cookies1 = 'myKey=myValue; myKey3=myValue3';
-const cookies2 = 'myKey=myValueNew; dummy=dummy_name; dummy2=[{"a":"a","b":0}]';
+const cookies = 'myKey=myValueNew; dummy=dummy_name; _ms_=[{"_ms_name":"mockerName1","_ms_target":"mockModuleNameOld","_ms_disable":0}]';
 
 // 获得扩展之后的 Nightmare
 const NightmarePlus = nightmareHandler.getNightmarePlus();
@@ -12,7 +13,7 @@ let nightmare = NightmarePlus({ show: true });
 
 nightmare = nightmare
     .exDevice('mobile')
-    .exCookies(cookies1, 'https://www.navossoc.com')
+    .exCookies(cookies, 'https://www.navossoc.com')
     .goto('https://www.navossoc.com/tests/cookie.php');
 
 nightmare
@@ -23,11 +24,15 @@ nightmare
         };
     })
     .then(function (result) {
-        // { cookie: 'myKey=myValue; myKey3=myValue3' }
+        // cookie: 'myKey=myValueNew; dummy=dummy_name; _ms_=[{"_ms_name":"mockerName1","_ms_target":"mockModuleNameOld","_ms_disable":0}]'
         console.log('1', result);
+        let mockStarQuery = new mockstar.MockStarQuery();
+
+        mockStarQuery.addOne('mockerName1', 'mockModuleName1');
+        mockStarQuery.addOne('mockerName2', 'mockModuleName2', true);
 
         nightmare
-            .exMergeCookies(cookies2)
+            .exChangeMockStar(mockStarQuery.getCookieString())
             .evaluate(function () {
                 return {
                     cookie: document.cookie,
@@ -36,7 +41,7 @@ nightmare
             })
             .end()
             .then(function (result) {
-                // { cookie: 'myKey3=myValue3; myKey=myValueNew; dummy=dummy_name; dummy2=dummy_name2' }
+                // cookie: 'myKey=myValueNew; dummy=dummy_name; _ms_=[{"_ms_name":"mockerName1","_ms_target":"mockModuleName1","_ms_disable":0},{"_ms_name":"mockerName2","_ms_target":"mockModuleName2","_ms_disable":1}]'
                 console.log('2', result);
             })
             .catch(function (error) {
