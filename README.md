@@ -66,6 +66,7 @@ import { Nightmare, getNightmarePlus } from 'nightmare-handler';
 - [exScrollToTop()](docs/exScrollToTop.md)
 - [exScrollToBottom()](docs/exScrollToBottom.md)
 - [exScrollToSelector(selector)](docs/exScrollToSelector.md)
+- [exChangeMockStar(cookieString)](docs/exChangeMockStar.md)
 
 如果上述提供的扩展方法不满足您的诉求，可以选择 [自定义扩展 NightmarePlus.extend(callExtend, opts)](docs/extend.md) 。
 
