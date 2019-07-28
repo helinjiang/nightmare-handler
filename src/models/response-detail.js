@@ -1,17 +1,18 @@
 /**
  * 资源类型，都是固定值， electron 目前定义了 8 种类型。
  * 具体定义在 https://github.com/electron/electron/blob/master/atom/browser/net/atom_network_delegate.cc#L23
+ * https://github.com/electron/electron/blob/50b9c7051ef482bb53ff5227d4e1a94d62442363/shell/browser/net/atom_network_delegate.cc#L30
  *
  * @type {Object}
  */
 export const RESOURCE_TYPE = {
-    MAIN_FRAME: 'frame',
+    MAIN_FRAME: 'mainFrame',
     SUB_FRAME: 'subFrame',
     STYLESHEET: 'stylesheet',
     SCRIPT: 'script',
     IMAGE: 'image',
     OBJECT: 'object',
-    XHR: 'console',
+    XHR: 'xhr',
     OTHER: 'other'
 };
 

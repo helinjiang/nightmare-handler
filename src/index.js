@@ -3,7 +3,7 @@ import extend from './extend';
 
 export Nightmare from 'nightmare';
 
-export ResponseDetail from './models/response-detail';
+export ResponseDetail, { RESOURCE_TYPE } from './models/response-detail';
 export WebEvent from './models/web-event';
 export WebEventRecorder from './tools/web-event-recorder';
 
