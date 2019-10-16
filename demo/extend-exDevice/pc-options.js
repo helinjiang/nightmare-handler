@@ -8,7 +8,7 @@ const nightmare = NightmarePlus({ show: true });
 
 // 执行
 nightmare
-    .exDevice('pc', { width: 600, height: 300 })
+    .exDevice('pc', { width: 600, height: 300, UA: 'hello i am new ua' })
     .goto('http://www.baidu.com')
     .wait('#su')
     .evaluate(function () {
