@@ -34,7 +34,7 @@ export default function addExtend(Nightmare, extraDevice) {
             }
 
             // 设置ua
-            that.child.call('useragent', deviceMap[name].UA, done);
+            that.child.call('useragent', opts.UA || deviceMap[name].UA, done);
 
             // 设置视窗大小
             that.child.call('size', opts.width || deviceMap[name].width, opts.height || deviceMap[name].height, done);
