@@ -7,39 +7,22 @@ var nightmare = Nightmare({ show: true });
 
 var recorder = new WebEventRecorder(nightmare);
 
-try{
-    console.log('===begin2222==',  nightmare.proc)
-
-
-    // 执行
-    nightmare.goto('http://www.baidu.com')
-        .type('form[action*="/s"] [name=f]', 'nightmare')
-        .click('form[action*="/s"] [type=submit]')
-        .wait('#content_left')
-        .evaluate(function () {
-            return Array.from(document.querySelectorAll('#content_left .c-container'))
-                .map(function (item) {
-                    return item.querySelector('.t').innerText;
-                });
-        })
-        .end()
-        .then(function (result) {
-            console.log(result);
-            console.log(recorder.toString());
-            console.log('===result==',  nightmare.proc)
-        })
-        .catch(function (error) {
-            console.error('Search failed:', error);
-        });
-
-    nightmare.proc.on('close', code => {
-        console.log('==close===',code)
+// 执行
+nightmare.goto('http://www.baidu.com')
+    .type('form[action*="/s"] [name=f]', 'nightmare')
+    .click('form[action*="/s"] [type=submit]')
+    .wait('#content_left')
+    .evaluate(function () {
+        return Array.from(document.querySelectorAll('#content_left .c-container'))
+            .map(function (item) {
+                return item.querySelector('.t').innerText;
+            });
     })
-    process.on('exit', (...props)=>{
-        console.log('==exit===',...props)
+    .end()
+    .then(function (result) {
+        console.log(result);
+        console.log(recorder.toString());
     })
-
-
-}catch (e) {
-    console.log('====catch ===',e)
-}
+    .catch(function (error) {
+        console.error('Search failed:', error);
+    });
