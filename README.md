@@ -1,6 +1,6 @@
 # nightmare-handler
 
-扩展 nightmare，并提供一些工具。
+在 [nightmare](https://www.npmjs.com/package/nightmare) 基础上做了扩展，保持了其原始的功能，并提供一些工具。
 
 ## 安装
 

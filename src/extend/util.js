@@ -18,7 +18,14 @@ export function getCookieList(cookies) {
             let result = [];
 
             for (let i = 0; i < arr.length; i++) {
-                let cur = arr[i].trim().split('=');
+                const item = arr[i].trim();
+
+                // 有可能会多输入一个 ; 导致最后一个有空值 https://github.com/helinjiang/nightmare-handler/issues/19
+                if (!item) {
+                    continue;
+                }
+
+                const cur = item.split('=');
 
                 result.push({
                     name: cur[0],
