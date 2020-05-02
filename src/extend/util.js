@@ -30,7 +30,20 @@ export function getCookieList(cookies) {
         })(cookies);
     } else if (!Array.isArray(cookies)) {
         // 如果 cookies 为对象，则将其加入到列表中
-        list.push(cookies);
+
+        if (cookies.name && cookies.value && (Object.keys(cookies).length === 2)) {
+            // 如果已经满足了 <name,value> 格式了，则不用处理，直接追加
+            list.push(cookies);
+        } else {
+            // 如果不满足 <name,value> 格式，则需要额外处理
+            Object.keys(cookies).forEach((cookieKey) => {
+                list.push({
+                    name: cookieKey,
+                    value: cookies[cookieKey]
+                });
+            });
+        }
+
     } else {
         // 如果是列表，则直接复制一份
         list = list.concat(cookies);
