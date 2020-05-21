@@ -72,7 +72,14 @@ export const EVENT_NAME = {
     // 重定向时触发，例如遇到了301重定向时会触发，在 did-start-loading 事件之后
     // https://electronjs.org/docs/api/web-contents#event-did-get-redirect-request
     // Emitted when a redirect is received while requesting a resource.
-    DID_GET_REDIRECT_REQUEST: 'did-get-redirect-request'
+    DID_GET_REDIRECT_REQUEST: 'did-get-redirect-request',
+
+    // 可用于测试 jsbridge 场景
+    // https://www.electronjs.org/docs/api/web-contents#event-did-fail-provisional-load
+    // This event is like did-fail-load but emitted when the load was cancelled (e.g. window.stop() was invoked).
+    // {} -3 'ERR_ABORTED' 'tnow://callByIframe' false
+    // {} -3 'ERR_ABORTED' 'tnow://callByLocaiton' true
+    DID_FAIL_PROVISIONAL_LOAD: 'did-fail-provisional-load'
 };
 
 /**
