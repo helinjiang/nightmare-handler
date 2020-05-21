@@ -2,6 +2,27 @@
  * 资源类型，都是固定值， electron 目前定义了 8 种类型。
  * 具体定义在 https://github.com/electron/electron/blob/master/atom/browser/net/atom_network_delegate.cc#L23
  * https://github.com/electron/electron/blob/50b9c7051ef482bb53ff5227d4e1a94d62442363/shell/browser/net/atom_network_delegate.cc#L30
+
+    const char* ResourceTypeToString(content::ResourceType type) {
+      switch (type) {
+        case content::ResourceType::kMainFrame:
+          return "mainFrame";
+        case content::ResourceType::kSubFrame:
+          return "subFrame";
+        case content::ResourceType::kStylesheet:
+          return "stylesheet";
+        case content::ResourceType::kScript:
+          return "script";
+        case content::ResourceType::kImage:
+          return "image";
+        case content::ResourceType::kObject:
+          return "object";
+        case content::ResourceType::kXhr:
+          return "xhr";
+        default:
+          return "other";
+      }
+    }
  *
  * @type {Object}
  */
@@ -18,6 +39,9 @@ export const RESOURCE_TYPE = {
 
 /**
  * https://electronjs.org/docs/api/web-contents#event-did-get-response-details
+ * 注意，由于目前 nightmare 使用的 electron 版本为 v2.0.18 ，因此实际应该查阅：
+ * https://github.com/electron/electron/blob/v2.0.18/docs/api/web-contents.md#event-did-get-response-details
+ *
  * Emitted when details regarding a requested resource are available.
  */
 export default class ResponseDetail {
