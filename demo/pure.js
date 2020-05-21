@@ -1,10 +1,15 @@
 var Nightmare = require('nightmare');
 
 // 更多选项可参考 https://github.com/segmentio/nightmare#nightmareoptions
-var nightmare = Nightmare({ show: true });
+var nightmare = Nightmare({
+    show: true,
+    openDevTools: {
+        mode: 'detach'
+    }
+});
 
-nightmare.on('did-get-response-details', function (event,...args) {
-    console.log('\ndid-get-response-details', event,typeof event.on);
+nightmare.on('did-get-response-details', function (event, ...args) {
+    console.log('\ndid-get-response-details', event, typeof event.on);
 });
 
 // 执行
