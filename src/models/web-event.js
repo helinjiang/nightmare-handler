@@ -17,7 +17,9 @@ export const EVENT_NAME = {
 
     // 页面开始加载之前触发，只触发一次，是最先触发的
     // https://electronjs.org/docs/api/web-contents#event-did-start-loading
+    // https://github.com/electron/electron/blob/v2.0.18/docs/api/web-contents.md#event-did-start-loading
     // Corresponds to the points in time when the spinner of the tab started spinning.
+    // 当tab中的旋转指针（spinner）开始旋转时，就会触发该事件。
     DID_START_LOADING: 'did-start-loading',
 
     // 资源加载时进行触发，会触发多次。这里的资源包括 html、image、cgi、mp4 等请求。
