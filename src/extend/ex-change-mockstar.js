@@ -89,7 +89,17 @@ export default function addExtend(Nightmare, opts) {
 
             done();
         }, function (cookieString, params, done) {
-            this.child.call('exChangeMockStar', cookieString, Object.assign({}, opts, params), done);
+            let doneCall = done;
+            let optsResult = opts;
+
+            // 注意，如果用户不传递第二个参数，则需要特殊处理
+            if (!doneCall && params) {
+                doneCall = params;
+            }else{
+                optsResult = Object.assign({}, opts, params);
+            }
+
+            this.child.call('exChangeMockStar', cookieString, optsResult, doneCall);
         }
     );
 }
