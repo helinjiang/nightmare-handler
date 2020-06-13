@@ -73,3 +73,7 @@ import { Nightmare, getNightmarePlus } from 'nightmare-handler';
 ### 事件相关
 
 nightmare 加载页面时，会产生一系列事件，具体请查看 [关于页面的事件](docs/events.md)
+
+### 调试模式
+
+使用 `DEBUG=nightmare* node xxx.js` 方式，可以打印出 nightmare 的诸多日志。

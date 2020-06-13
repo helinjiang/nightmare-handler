@@ -70,6 +70,11 @@ export default function addExtend(Nightmare, opts) {
                             value: newValue
                         };
 
+                        // 自主设置 domain，以便解决跨域请求时不携带 cookie 的问题
+                        if (opts.domain) {
+                            details.domain = opts.domain;
+                        }
+
                         // https://electronjs.org/docs/api/cookies#cookiessetdetails-callback
                         win.webContents.session.cookies.set(details, function (error) {
                             if (error) {
@@ -83,8 +88,18 @@ export default function addExtend(Nightmare, opts) {
             });
 
             done();
-        }, function (cookieString, done) {
-            this.child.call('exChangeMockStar', cookieString, opts, done);
+        }, function (cookieString, params, done) {
+            let doneCall = done;
+            let optsResult = opts;
+
+            // 注意，如果用户不传递第二个参数，则需要特殊处理
+            if (!doneCall && params) {
+                doneCall = params;
+            }else{
+                optsResult = Object.assign({}, opts, params);
+            }
+
+            this.child.call('exChangeMockStar', cookieString, optsResult, doneCall);
         }
     );
 }
